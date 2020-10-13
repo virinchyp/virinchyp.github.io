@@ -1,0 +1,92 @@
+<mvc:View controllerName="au.com.bournedigital.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+		<semantic:titleHeading>
+			<Title text="{ShipName}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+				<VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<HBox class="sapUiTinyMarginBottom">
+						<Label text="{i18n>objectOrderID}:" class="sapUiTinyMarginEnd"/>
+						<Text text=" {OrderID}"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginBottom">
+						<Label text="{i18n>objectContactName}:" class="sapUiTinyMarginEnd"/>
+						<Text text=" {Customer/ContactName}"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginBottom">
+						<Label text="{i18n>objectContactTitle}:" class="sapUiTinyMarginEnd"/>
+						<Text text="{Customer/ContactTitle}"/>
+					</HBox>
+					<HBox>
+						<Label text="{i18n>objectPhone}:" class="sapUiTinyMarginEnd"/>
+						<Text text="{Customer/Phone}"/>
+					</HBox>
+				</VBox>
+				<VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<HBox class="sapUiTinyMarginBottom">
+						<Label text="{i18n>objectAddress}:" class="sapUiSmallMarginEnd"/>
+						<Text text="{Customer/Address}"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginBottom">
+						<Label text="{i18n>objectPostalCodeCity}:" class="sapUiSmallMarginEnd"/>
+						<Text text=" {Customer/PostalCode} {Customer/City}"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginBottom">
+						<Label text="{i18n>objectCountry}:" class="sapUiSmallMarginEnd"/>
+						<Text text="{Customer/Country}"/>
+					</HBox>
+				</VBox>
+				<VBox class="sapUiLargeMarginEnd">
+					<Title text="{i18n>objectTotalValue}:" class="sapUiSmallMarginEnd"/>
+					<ObjectStatus text="{ path: 'UnitPrice', formatter: '.formatter.Total' } AUD" class="sapMObjectStatusLarge"/>
+				</VBox>
+			</FlexBox>
+		</semantic:headerContent>
+		<semantic:content>
+			<Panel class="sapUiNoContentPadding">
+				<content>
+					<Table id="orderLineItems" inset="false" items="{Order_Details}">
+						<headerToolbar>
+							<OverflowToolbar>
+								<content>
+									<Title text="{i18n>objectHeading}" level="H2"/>
+									<ToolbarSpacer/>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column >
+								<Text text="{i18n>objecTableColumnProduct}"/>
+							</Column>
+							<Column >
+								<Text text="{i18n>objecTableColumnProductUnitPrice}"/>
+							</Column>
+							<Column >
+								<Text text="{i18n>objecTableColumnQuantity}"/>
+							</Column>
+							<Column hAlign="End">
+								<Text text="{i18n>objecTableColumnDiscount}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{ProductID}"/>
+									<Text text="{UnitPrice}"/>
+									<Text text="{Quantity}"/>
+									<ObjectStatus class="sapUiSmallMarginBottom" text="{Discount}" state="Warning"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Panel>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction>
+	</semantic:SemanticPage>
+</mvc:View>
