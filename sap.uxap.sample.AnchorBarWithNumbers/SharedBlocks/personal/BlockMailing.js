@@ -1,7 +1,7 @@
 sap.ui.define(['sap/uxap/BlockBase'], function (BlockBase) {
 	"use strict";
 
-	var BlockMailing = BlockBase.extend("sap.uxap.sample.SharedBlocks.personal.BlockMailing", {
+	var BlockMailing = BlockBase.extend("sap.uxap.sample.AnchorBarWithNumbers.SharedBlocks.personal.BlockMailing", {
 		metadata: {}
 	});
 

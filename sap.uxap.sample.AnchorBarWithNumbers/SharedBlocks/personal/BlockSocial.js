@@ -1,7 +1,7 @@
 sap.ui.define(['sap/uxap/BlockBase'], function (BlockBase) {
 	"use strict";
 
-	var BlockSocial = BlockBase.extend("sap.uxap.sample.SharedBlocks.personal.BlockSocial", {
+	var BlockSocial = BlockBase.extend("sap.uxap.sample.AnchorBarWithNumbers.SharedBlocks.personal.BlockSocial", {
 		metadata: {}
 	});
 
