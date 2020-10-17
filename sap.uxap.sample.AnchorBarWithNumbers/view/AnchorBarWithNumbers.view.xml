@@ -2,24 +2,25 @@
 	xmlns="sap.uxap"
 	xmlns:layout="sap.ui.layout"
 	xmlns:m="sap.m"
-	xmlns:ui="sap.ui.table"
 	xmlns:goals="sap.uxap.sample.SharedBlocks.goals"
 	xmlns:personal="sap.uxap.sample.SharedBlocks.personal"
 	xmlns:employment="sap.uxap.sample.SharedBlocks.employment"
-	controllerName="sap.uxap.sample.ObjectPageState.controller.ObjectPageState"
+	controllerName="sap.uxap.sample.AnchorBarWithNumbers.controller.AnchorBarWithNumbers"
 	height="100%">
-	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" selectedSection="paymentSubSection" useIconTabBar="true">
+	<ObjectPageLayout id="ObjectPageLayout"
+		subSectionLayout="TitleOnLeft"
+		showTitleInHeaderContent="true">
 		<headerTitle>
 			<ObjectPageDynamicHeaderTitle>
 				<expandedHeading>
-					<m:Title text="Denise Smith" wrapping="true"/>
+					<m:Title text="Denise Smith" wrapping="true" />
 				</expandedHeading>
 
 				<snappedHeading>
-					<m:FlexBox fitContainer="true" alignItems="Center">
-						<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/>
-						<m:Title text="Denise Smith" wrapping="true" />
-					</m:FlexBox>
+						<m:FlexBox fitContainer="true" alignItems="Center" >
+							<m:Avatar src="sap-icon://picture" class="sapUiTinyMarginEnd"/>
+							<m:Title text="Denise Smith" wrapping="true" />
+						</m:FlexBox>
 				</snappedHeading>
 
 				<expandedContent>
@@ -38,26 +39,24 @@
 					<m:OverflowToolbarButton icon="sap-icon://pull-down" text="show section" type="Emphasized" tooltip="pull-down"/>
 					<m:OverflowToolbarButton icon="sap-icon://show" text="show state" type="Emphasized" tooltip="show"/>
 				</actions>
-
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
 
 		<headerContent>
-			<m:FlexBox wrap="Wrap" fitContainer="true" >
-				<m:Avatar class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" />
+			<m:FlexBox wrap="Wrap" fitContainer="true">
+				<m:Avatar class="sapUiSmallMarginEnd" src="sap-icon://picture" displaySize="L"/>
 
-				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+				<layout:VerticalLayout>
 					<m:Link text="+33 6 4512 5158"/>
 					<m:Link text="DeniseSmith@sap.com"/>
+					<layout:HorizontalLayout>
+						<m:Image src="./test-resources/sap/uxap/images/linkedin.png"/>
+						<m:Image src="./test-resources/sap/uxap/images/Twitter.png" class="sapUiSmallMarginBegin"/>
+					</layout:HorizontalLayout>
 				</layout:VerticalLayout>
 
-				<layout:HorizontalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Image src="./test-resources/sap/uxap/images/linkedin.png"/>
-					<m:Image src="./test-resources/sap/uxap/images/Twitter.png" class="sapUiSmallMarginBegin"/>
-				</layout:HorizontalLayout>
-
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Label text="Hello! I am Denise and I use UxAP"/>
+					<m:Label text="Hello! I am Tim and I use UxAP"/>
 					<m:VBox>
 						<m:Label text="Achieved goals"/>
 						<m:ProgressIndicator percentValue="30" displayValue="30%"/>
@@ -73,7 +72,7 @@
 		<sections>
 			<ObjectPageSection titleUppercase="false" title="2014 Goals Plan">
 				<subSections>
-					<ObjectPageSubSection titleUppercase="false">
+					<ObjectPageSubSection title="Goal summary" titleUppercase="false">
 						<blocks>
 							<goals:GoalsBlock id="goalsblock"/>
 						</blocks>
@@ -81,29 +80,27 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection titleUppercase="false" title="Personal">
+			<ObjectPageSection titleUppercase="false" title="Personal (2)">
 				<subSections>
 					<ObjectPageSubSection title="Connect" titleUppercase="false">
-						<blocks>
-							<personal:BlockPhoneNumber id="phone"/>
-							<personal:BlockSocial id="social"/>
-							<personal:BlockAdresses id="adresses"/>
-							<personal:BlockMailing id="mailing" columnLayout="1"/>
-						</blocks>
+						<personal:BlockAdresses id="adresses"/>
+						<personal:BlockPhoneNumber id="phone"/>
+						<personal:BlockSocial id="social"/>
+						<personal:BlockMailing id="mailing"/>
 					</ObjectPageSubSection>
 
-					<ObjectPageSubSection id="paymentSubSection" title="Payment information" mode="Expanded" titleUppercase="false">
+					<ObjectPageSubSection title="Payment information" titleUppercase="false">
 						<blocks>
-							<personal:PersonalBlockPart1 id="part1" columnLayout="1"/>
+							<personal:PersonalBlockPart1 id="part1"/>
 						</blocks>
 						<moreBlocks>
-							<personal:PersonalBlockPart2 id="part2" columnLayout="1"/>
+							<personal:PersonalBlockPart2 id="part2"/>
 						</moreBlocks>
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection titleUppercase="false" title="Employment">
+			<ObjectPageSection titleUppercase="false" title="Employment (3)">
 				<subSections>
 					<ObjectPageSubSection title="Job information" titleUppercase="false">
 						<blocks>
@@ -145,49 +142,6 @@
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
-
-			<ObjectPageSection titleUppercase="false" title="Table information">
-				<subSections>
-					<ObjectPageSubSection title="Personal Belongings" titleUppercase="false">
-					<ui:Table id="idProductsTable"
-						visibleRowCountMode="Auto"
-						minAutoRowCount="2"
-						rows="{
-							path: 'TableModel>/ProductCollection',
-							sorter: {
-								path: 'Name'
-							}
-						}">
-						<ui:columns>
-							<ui:Column
-								label="Product">
-								<ui:template>
-									<m:Text text="{TableModel>ProductId}" />
-								</ui:template>
-							</ui:Column>
-							<ui:Column
-								label="Supplier">
-								<ui:template>
-									<m:Text text="{TableModel>SupplierName}" />
-								</ui:template>
-							</ui:Column>
-							<ui:Column
-								label="Category">
-								<ui:template>
-									<m:Text text="{TableModel>Category}" />
-								</ui:template>
-							</ui:Column>
-							<ui:Column label="Price">
-								<ui:template>
-									<m:Text text="{TableModel>Price}" />
-								</ui:template>
-							</ui:Column>
-						</ui:columns>
-					</ui:Table>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
 		</sections>
 	</ObjectPageLayout>
 </mvc:View>
