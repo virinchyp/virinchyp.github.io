@@ -36,8 +36,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
 				this._timeline = this.byId("idTimeline");
 				this.byId("idTimeline").setCustomGrouping(function(oDate) {
 					return {
-						key: oDate.getFullYear() + "/" + (oDate.getMonth() < 6 ? 1 : 2),
-						title: oDate.getFullYear() + "/" + (oDate.getMonth() < 6 ? "1. half" : "2. half"),
+						key: oDate.getFullYear() ,
+						title: oDate.getFullYear()  ,
 						date: oDate
 					};
 				});
@@ -52,9 +52,21 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
 			onUserNameClick : function(oEvent) {
 			//	MessageToast.show(oEvent.getSource().getUserName() + " is pressed.");
 			},
-			onPressItems : function(evt) {
-			//	MessageToast.show("The TimelineItem is pressed.");
+			onPressItems: function (evt) {
+				// Get the binding context of the pressed TimelineItem
+				const context = evt.getSource().getBindingContext();
+			
+				// Retrieve the Link property from the context
+				const url = context.getProperty("url");
+			
+				// Ensure the URL is valid and fully qualified
+				if (url && (url.startsWith("http://") || url.startsWith("https://"))) {
+					window.open(url, "_blank");
+				} else {
+					sap.m.MessageToast.show("Invalid or missing URL.");
+				}
 			},
+			
 			enableScrollSelected: function (oEvent) {
 				var bSelected = oEvent.getParameter("selected");
 				this._timeline.setEnableScroll(bSelected);

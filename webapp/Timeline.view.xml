@@ -9,7 +9,7 @@
 	
 	<Timeline
 			id="idTimeline"
-			
+			enableBusyIndicator="true"
 			enableDoubleSided="false"
 			groupBy="HireDate"
 			growingThreshold="0"
@@ -17,19 +17,26 @@
 			sortOldestFirst="true"
 			content="{/Employees}">
 		<content>
-			<TimelineItem
-					id="idTemplateItem"
-					dateTime="{HireDate}"
-					title="{JobTitle}"
-					userNameClickable="true"
-					userNameClicked="onUserNameClick"
-					select="onPressItems"
-					userPicture="{Photo}"
-					text="{JobResponsibilities}"
-					userName="{ClientName}"
-					filterValue="{JobTitle}"
-					>
-			</TimelineItem>
+	<TimelineItem
+            id="idTemplateItem"
+            dateTime="{
+                path: 'HireDate',
+                type: 'sap.ui.model.type.Date',
+                formatOptions: {
+                    pattern: 'dd-MM-yyyy'
+                }
+            }"
+            title="{JobTitle}"
+            userNameClickable="true"
+            userNameClicked="onUserNameClick"
+            select="onPressItems"
+            userPicture="{Photo}"
+            text="{JobResponsibilities}"
+            userName="{ClientName}"
+            filterValue="{JobTitle}"
+		
+        >
+        </TimelineItem>
 		</content>
 	</Timeline>
 </mvc:View>
