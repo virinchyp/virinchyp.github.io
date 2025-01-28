@@ -1,0 +1,46 @@
+{
+	"Employees": [
+		
+		{
+			"ClientName": "IBM / Department of Defence",
+			"JobTitle": "SAP Mobile Architect",
+			"Photo": "https://media.licdn.com/dms/image/v2/C5603AQEbNv9eHbZ3ig/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1601258980694?e=1743638400&v=beta&t=aUh8sL0hEiqoTwpZf9LTBaXkpWOR7QxEJZZ6pwQuRkc",
+			
+			"Icon": "sap-icon://connected",
+			"JobResponsibilities": "Designed and delivered offline mobility solutions for Military Planning and Operations at the Department of Defence. Focused on custom development and integration with SAP S/4HANA and SAP Mobile Platform.\n\nAchievements:\n- Developed an offline mobility solution for Military Planning and Operations.\n- Implemented OData services using MAIF, enhancing data synchronization performance.",
+			"HireDate": "Date(1612137600000)"
+		},
+		{
+			"ClientName": "SA Power Networks",
+			"JobTitle": "SAP Fiori Consultant",
+			"Photo": "/images/Virinchy_Panangipalli.png",
+			"Icon": "sap-icon://settings",
+			"JobResponsibilities": "Led UI5 library upgrades and enhanced timesheeting solutions for SA Power Networks. Conducted an impact analysis for Fiori apps and HCM application upgrades.\n\nAchievements:\n- Enhanced time sheeting solutions.\n- Conducted successful UI5 library upgrades.",
+			"HireDate": "Date(1583020800000)"
+		},
+		{
+			"ClientName": "Transport for NSW",
+			"JobTitle": "SAP Fiori / Mobility Lead",
+			"Photo": "/images/Virinchy_Panangipalli.png",
+			"Icon": "sap-icon://monitor-payments",
+			"JobResponsibilities": "Managed desktop and mobile solutions for Transport for NSW, including over 15 Fiori/UI5 apps and hybrid/mobile applications. Led Mobility Roadmap projects and monthly releases.\n\nAchievements:\n- Delivered key milestones like SAP UI library upgrades and Mobility Roadmap development.\n- Maintained stable operations for over 10,000 end-users.",
+			"HireDate": "Date(1530403200000)"
+		},
+		{
+			"ClientName": "Sydney Trains / Deloitte)",
+			"JobTitle": "SAP Fiori Developer",
+			"Photo": "/images/Virinchy_Panangipalli.png",
+			"Icon": "sap-icon://action-settings",
+			"JobResponsibilities": "Designed and developed custom Fiori/UI5 applications for Sydney Trains. Integrated features like image capture, network dropout handling, and file uploads.\n\nAchievements:\n- Deloitte Shout Out Award for defect resolution during Equip app implementation.",
+			"HireDate": "Date(1475280000000)"
+		},
+		{
+			"ClientName": "Wise Men ERP Solutions (SAP Partner)",
+			"JobTitle": "SAP Technical Consultant",
+			"Photo": "/images/Virinchy_Panangipalli.png",
+			"Icon": "sap-icon://technical-object",
+			"JobResponsibilities": "\nGot an oppurtunity to play with the new SAP products like SAP UI5,  wave 1 of 25 Fiori apps and SAP Mobile Platform 3.x \n  Implemented Ui5 and Fiori apps Worked on first S/4HANA implementation by an SAP Partner in Houston for Par Pacific Holdings. \nDelivered end-to-end custom Fiori applications and SAP Store-certified hybrid solutions.\n\nAchievements:\n- Delivered DKOM'16 session on Fiori and S/4HANA.\n- SAP SCN Member of the Month (Feb 2015). \n\n Skills: SAP Ui5 custom development, SMP,Mobile services,  Fiori wave1, SAP Hana DB xs development, S4Hana Fiori Apps implementation Client",
+			"HireDate": "Date(1375315200000)"
+		}
+	]
+}
